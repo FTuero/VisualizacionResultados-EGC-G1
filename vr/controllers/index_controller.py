@@ -1,11 +1,7 @@
 from ..model import *
 from .. import app
+from flask import render_template
 
-@app.route('/')
+@app.route('/visres')
 def home():
-    print("fff")
-    polls = session.query(base.classes['poll']).all()
-    str = ""
-    for p in polls:
-        str = str + p.title + "\n<br\>"
-    return str
+    return render_template('result.html')
