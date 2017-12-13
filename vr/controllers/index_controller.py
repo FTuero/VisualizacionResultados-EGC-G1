@@ -8,6 +8,6 @@ from flask import render_template
 def home(poll_id):
     poll = find_poll(poll_id)
     def count_question(id):
-        question_option_result(id)
+        return question_option_result(id)
 
-    return render_template('result.html', count_question=count_question)
+    return render_template('result.html', poll=poll, count_question=count_question)
