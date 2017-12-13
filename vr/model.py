@@ -1,7 +1,7 @@
 from sqlalchemy.ext.automap import automap_base
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import Session
-from . import *
+from . import app
 
 
 db = SQLAlchemy(app)
