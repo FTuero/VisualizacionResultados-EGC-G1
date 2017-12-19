@@ -10,4 +10,4 @@ def home(poll_id):
     def count_question(id):
         return question_option_result(id)
 
-    return render_template('result.html', poll=poll, count_question=count_question)
+    return render_template('result_pie.html', poll=poll, count_question=count_question)

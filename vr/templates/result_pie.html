@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1>{{poll.title}}</h1>
+    <br/>
+    {% for q in poll.question_collection %}
+        <script>
+            var options{{q.id}}=[];
+            var votes{{q.id}}=[];
+            var colors{{q.id}}=[];
+        </script>
+        <h3>{{q.title}}</h3>
+        <ul>
+            {% for op in q.question_option_collection %}
+                <title id="OPid" style="display: none">{{op.id}}</title>
+                <li>
+                    <p id="op{{op.id}}"><b>{{op.description}}</b></p>
+                    <p id="opv{{op.id}}">{{count_question(op.id)}}</p>
+                </li>
+                <script>
+                    options{{q.id}}.push("{{op.description}}")
+                    votes{{q.id}}.push({{count_question(op.id)}})
+                    colors{{q.id}}.push('rgba('+ Math.floor(Math.random()*256)+','+Math.floor(Math.random()*256)+','+ Math.floor(Math.random()*256)+','+ Math.floor(Math.random()*256)+')')
+                </script>
+            {% endfor %}
+        </ul>
+            <div id="div{{q.id}}" style="/*width:25%; height:25%;*/">
+                <canvas id="popChart{{q.id}}"></canvas>
+                <script>
+                    var popCanvas{{q.id}} = document.getElementById("popChart{{q.id}}").getContext("2d");
+                    var pieChart{{q.id}} = new Chart(popCanvas{{q.id}}, {
+                      type: 'pie',
+                      data: {
+                        labels: options{{q.id}},
+                        datasets: [{
+                          label: 'Votes',
+                          data: votes{{q.id}},
+                          backgroundColor: colors{{q.id}}
+                        }]
+                      }
+                    });
+                </script>
+            </div>
+    {% endfor %}
+{% endblock %}
