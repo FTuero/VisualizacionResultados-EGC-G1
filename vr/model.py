@@ -3,12 +3,11 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import Session
 from . import app
 
-
 db = SQLAlchemy(app)
 base = automap_base()
 base.prepare(db.engine, reflect=True)
 
-session = Session(db.engine)
+session = db.session
 
 
 Census = base.classes['census']
