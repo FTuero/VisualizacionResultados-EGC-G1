@@ -1,0 +1,28 @@
+sudo: required
+
+language: python
+
+python:
+  - "3.6"
+
+services:
+  - mariadb
+  - docker
+
+install:
+  - pip install -r deploy/requeriments.txt
+
+before_install:
+  - mysql -e 'DROP DATABASE IF EXISTS votaciones_splc'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS votaciones_splc;'  
+  - mysql -u root --default-character-set=utf8 votaciones_splc < deploy/database/db_dump/script_create_votaciones_splc.sql
+  - mysql -u root --default-character-set=utf8 votaciones_splc < deploy/database/db_dump/script_populate_votaciones_splc.sql
+  - mysql -u root --default-character-set=utf8 votaciones_splc < deploy/database/db_dump/zext.sql
+
+script:
+  - pytest
+  - bash build_and_upload_docker_image.sh
+
+branches:
+  only:
+  - dev
