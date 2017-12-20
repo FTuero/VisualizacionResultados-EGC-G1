@@ -8,7 +8,6 @@ from flask import jsonify
 
 @app.route('/visres/data/day/<poll_id>')
 def votes_per_day_data(poll_id):
-    poll = find_poll(poll_id)
     vpd = votes_per_day(poll_id);
     res= jsonify(
         len=vpd[0].__len__(),
@@ -30,7 +29,6 @@ def participation_data(poll_id):
 
 @app.route('/visres/data/platform/<poll_id>')
 def votes_per_platform_data(poll_id):
-    poll = find_poll(poll_id)
     vpp = votes_per_platform(poll_id);
     res = jsonify(
         len=vpp[0].__len__(),
