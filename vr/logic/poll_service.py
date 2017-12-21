@@ -28,7 +28,7 @@ def votes_per_day(poll_id):
                 for vo in opv.vote_collection:
                     if(res[0].__contains__(vo.voteDate)):
                         i=res[0].index(vo.voteDate)
-                        res[1].__setitem__(i,res[1].__getitem__(i))
+                        res[1].__setitem__(i,res[1].__getitem__(i)+1)
     return res
 
 
@@ -41,7 +41,7 @@ def votes_per_platform(poll_id):
                 for vo in opv.vote_collection:
                     if(res[0].__contains__(vo.voteType)):
                         i=res[0].index(vo.voteType)
-                        res[1]=res[1].__getitem__(i)+1
+                        res[1].__setitem__(i, res[1].__getitem__(i) + 1)
                     else:
                         res[0].extend(vo.voteType)
                         res[1].extend(1)

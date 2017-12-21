@@ -30,9 +30,21 @@ def participation_data(poll_id):
 @app.route('/visres/data/platform/<poll_id>')
 def votes_per_platform_data(poll_id):
     vpp = votes_per_platform(poll_id);
+    def defplat(plat):
+        for n in plat:
+            if n ==1:
+                platform="Web"
+            elif n ==2:
+                platform="Slack"
+            elif n==3:
+                platform="Telegram"
+            i = plat.index(n)
+            plat.__setitem__(i,platform)
+
+    platforms=defplat(vpp[0])
     res = jsonify(
         len=vpp[0].__len__(),
-        labels=vpp[0],
+        labels=platforms,
         data=vpp[1]
     )
     return res
