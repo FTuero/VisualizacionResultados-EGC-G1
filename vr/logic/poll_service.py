@@ -18,8 +18,8 @@ def votes_per_day(poll_id):
     start_date = poll.startDate
     end_date = poll.endDate
     for single_date in daterange(start_date, end_date):
-        res[0].extend(single_date.strftime("%Y-%m-%d"))
-        res[1].extend(1)
+        res[0].append(single_date.strftime("%Y-%m-%d"))
+        res[1].append(1)
 
 
     for q in poll.question_collection:
@@ -43,6 +43,6 @@ def votes_per_platform(poll_id):
                         i=res[0].index(vo.voteType)
                         res[1].__setitem__(i, res[1].__getitem__(i) + 1)
                     else:
-                        res[0].extend(vo.voteType)
-                        res[1].extend(1)
+                        res[0].append(vo.voteType)
+                        res[1].append(1)
     return res
