@@ -1,9 +1,7 @@
-from ..model import Census, session
+from ..model import Poll, session
 
 
-def census_count(census_id):
-    res = 0
-    census = session.query(Census).get(census_id)
-    for us in census.user_account_per_census:
-        res += 1
+def census_count(poll_id):
+    poll = session.query(Poll).get(poll_id)
+    res=poll.votos_actuales/poll.participantes_admitidos
     return res

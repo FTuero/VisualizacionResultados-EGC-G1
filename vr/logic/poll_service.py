@@ -26,8 +26,8 @@ def votes_per_day(poll_id):
         for op in q.question_option_collection:
             for opv in op.option_per_vote_collection:
                 for vo in opv.vote_collection:
-                    if(res[0].__contains__(vo.voteDate)):
-                        i=res[0].index(vo.voteDate)
+                    if(res[0].__contains__(vo.vote_date)):
+                        i=res[0].index(vo.vote_date)
                         res[1].__setitem__(i,res[1].__getitem__(i)+1)
     return res
 
@@ -38,11 +38,10 @@ def votes_per_platform(poll_id):
     for q in poll.question_collection:
         for op in q.question_option_collection:
             for opv in op.option_per_vote_collection:
-                for vo in opv.vote_collection:
-                    if(res[0].__contains__(vo.voteType)):
-                        i=res[0].index(vo.voteType)
-                        res[1].__setitem__(i, res[1].__getitem__(i) + 1)
-                    else:
-                        res[0].append(vo.voteType)
-                        res[1].append(1)
+                if(res[0].__contains__(opv.vote.vote_type_id)):
+                    i=res[0].index(opv.vote.vote_type_id)
+                    res[1].__setitem__(i, res[1].__getitem__(i) + 1)
+                else:
+                    res[0].append(opv.vote.vote_type_id)
+                    res[1].append(1)
     return res
