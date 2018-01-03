@@ -9,3 +9,4 @@ def question_option_result(id):
         if op.id == id:
             res += 1
     return res
+
