@@ -2,7 +2,8 @@
 {% block body %}
     <h1>{{poll.title}}</h1>
     <br/>
-    {% for q in poll.question_collection %}
+    <h3><a href="prueba">Ver resultados</a></h3>
+    <!-- {% for q in poll.question_collection %}
         <h3>{{q.title}}</h3>
         <ul>
             {% for op in q.question_option_collection %}
@@ -12,5 +13,7 @@
                 </li>
             {% endfor %}
         </ul>
-    {% endfor %}
+    {% endfor %} -->
+    {{poll.votos_actuales}}
+    {{poll.participantes_admitidos}}
 {% endblock %}
