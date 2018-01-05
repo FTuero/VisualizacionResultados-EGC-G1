@@ -19,8 +19,10 @@ def votes_per_day_data(poll_id):
 
 @app.route('/visres/data/census/<poll_id>')
 def participation_data(poll_id):
-    participation = census_count(poll_id)
-    res = Response('{"len":1,"labels":["Participation"], "data":['+str(participation)+']}')
+    poll = find_poll(poll_id)
+    participation = poll.votos_actuales
+    no_participation = poll.participantes_admitidos - participation
+    res = Response('{"len":1,"labels":["Participaron", "No participaron"], "data":['+str(participation)+', '+str(no_participation)+']}')
     res.headers["Content-Type"] = "application/json"
     return res
 
