@@ -16,6 +16,7 @@
     {% endfor %} -->
     {{poll.votos_actuales}}
     {{poll.participantes_admitidos}}
-    <div class="chart" data-path="/visres/data/census/1" data-type="pie" data-label="Label"></div>
+    <div class="chart" data-path="/visres/data/census/{{poll.id}}" data-type="pie" data-label="Participacion del censo"></div>
+    <div class="chart" data-path="/visres/data/day/{{poll.id}}" data-type="bar" data-label="Nº de votaciones diarias"></div>
     
 {% endblock %}
