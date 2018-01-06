@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <h1>{{poll.title}}</h1>
+    <hr>
+    <br/>
+    {% for q in poll.question_collection %}
+        <h3>{{q.title}}</h3>
+        <ul>
+            {% for qo in q.question_option_collection%}
+                <li>
+                    <p><b>{{qo.description}}</b></p>
+                    <p>{{votes_question(qo.id)}}</p>
+                </li>
+            {% endfor %}
+
+        </ul>
+
+    {% endfor %}
+
+{% endblock %}
