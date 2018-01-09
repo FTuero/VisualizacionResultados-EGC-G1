@@ -2,21 +2,33 @@
 
 {% block body %}
 
+
     <h1>{{poll.title}}</h1>
     <hr>
     <br/>
     {% for q in poll.question_collection %}
+        <div class="master">
+        <div class="manu">
         <h3>{{q.title}}</h3>
+        <h4>{{q.description}}</h4>
+        </div>
+        <br/>
+
         <ul>
+            <div class="submaster">
             {% for qo in q.question_option_collection%}
+                <div class="fer">
                 <li>
-                    <p><b>{{qo.description}}</b></p>
-                    <p>{{votes_question(qo.id)}}</p>
+                    <p>{{qo.description}}</p>
                 </li>
+                </div>
             {% endfor %}
-
+            </div>
         </ul>
-
+        <div class="chart maria" data-path="/visres/data/votes" data-type="pie" data-label="Votes"></div>
+        <div class="marcos"></div>
+        </div>
     {% endfor %}
 
 {% endblock %}
+
