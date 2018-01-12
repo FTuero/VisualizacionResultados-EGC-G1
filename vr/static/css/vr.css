@@ -1,0 +1,79 @@
+.poll_title{
+	font-size: 38px; 
+	margin-bottom: 50px; 
+}
+
+.poll_subtitle{
+	font-size: 25px;
+	color: rgb(80, 80, 80);
+}
+
+.centered_block{
+    display: table; 
+    margin: auto; 
+	width: 70%;
+	margin-bottom: 100px;
+}
+
+.left_45{
+    float: left;
+    width: 50%;
+    height: 30%;
+}
+
+.centered_text{
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.resultados_button {
+	-moz-box-shadow: 0px 0px 0px 2px #ffffff;
+	-webkit-box-shadow: 0px 0px 0px 2px #ffffff;
+	box-shadow: 0px 0px 0px 2px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #a81c41), color-stop(1, #cc0047));
+	background:-moz-linear-gradient(top, #a81c41 5%, #cc0047 100%);
+	background:-webkit-linear-gradient(top, #a81c41 5%, #cc0047 100%);
+	background:-o-linear-gradient(top, #a81c41 5%, #cc0047 100%);
+	background:-ms-linear-gradient(top, #a81c41 5%, #cc0047 100%);
+	background:linear-gradient(to bottom, #a81c41 5%, #cc0047 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a30041', endColorstr='#cc0047',GradientType=0);
+	background-color:#a81c41;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:1px solid #8a0027;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:18px;
+	padding:7px 14px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #000000;
+}
+.resultados_button:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #cc0047), color-stop(1, #a81c41));
+	background:-moz-linear-gradient(top, #cc0047 5%, #a81c41 100%);
+	background:-webkit-linear-gradient(top, #cc0047 5%, #a81c41 100%);
+	background:-o-linear-gradient(top, #cc0047 5%, #a81c41 100%);
+	background:-ms-linear-gradient(top, #cc0047 5%, #a81c41 100%);
+	background:linear-gradient(to bottom, #cc0047 5%, #a81c41 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc0047', endColorstr='#a81c41',GradientType=0);
+    background-color:#cc0047;
+    color:#ffffff;
+    text-decoration:none;   
+}
+.resultados_button:active {
+	position:relative;
+    top:1px;
+    color:#ffffff !important;
+    text-decoration:none !important;  
+    outline: none !important;
+    box-shadow: none;
+}
+.resultados_button:visited, .resultados_button:focus {
+    color:#ffffff !important;
+    text-decoration:none !important;
+    outline: none !important;
+    box-shadow: none;
+}

@@ -1,16 +1,26 @@
 {% extends "base.html" %}
 {% block body %}
-    <h1>{{poll.title}}</h1>
-    <br/>
-    {% for q in poll.question_collection %}
-        <h3>{{q.title}}</h3>
-        <ul>
-            {% for op in q.question_option_collection %}
-                <li>
-                    <p><b>{{op.description}}</b></p>
-                    <p>{{count_question(op.id)}}</p>
-                </li>
-            {% endfor %}
-        </ul>
-    {% endfor %}
+    <div class="centered_text poll_title">{{poll.title}}</div>
+
+    <div class="centered_text" style="margin-bottom: 70px">
+        <a href="/visres/{{poll.id}}/answers/" class="resultados_button">Ver resultados</a>
+    </div>
+
+    <div class="centered_block">
+        <div class="centered_text poll_subtitle">Datos de participación</div>
+        <div class="left_45">
+            Proporción participantes-No participantes (del censo total):
+            <div class="chart" data-path="/visres/data/census/{{poll.id}}" data-type="pie" data-label="Participacion del censo"></div>
+        </div>
+        <div class="left_45">
+            Votaciones recibidas en cada plataforma:
+            <div class="chart" data-path="/visres/data/platform/{{poll.id}}" data-type="bar" data-label="Nº de votaciones por plataforma"></div>
+            
+        </div>
+    </div>
+    <div class="centered_block">
+        Votaciones recibidas por día:
+        <div class="chart" data-path="/visres/data/day/{{poll.id}}" data-type="bar" data-label="Nº de votaciones diarias"></div>
+    </div>
+
 {% endblock %}
