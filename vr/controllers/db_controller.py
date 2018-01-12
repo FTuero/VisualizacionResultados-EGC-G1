@@ -5,7 +5,7 @@ from ..logic.census_service import census_count
 from flask import render_template,Response
 import json
 
-
+@login_required
 @app.route('/visres/data/day/<poll_id>')
 def votes_per_day_data(poll_id):
     vpd = votes_per_day(poll_id);
@@ -16,7 +16,7 @@ def votes_per_day_data(poll_id):
     res.headers["Content-Type"] = "application/json"
     return res
 
-
+@login_required
 @app.route('/visres/data/census/<poll_id>')
 def participation_data(poll_id):
     poll = find_poll(poll_id)
@@ -26,6 +26,7 @@ def participation_data(poll_id):
     res.headers["Content-Type"] = "application/json"
     return res
 
+@login_required
 @app.route('/visres/data/platform/<poll_id>')
 def votes_per_platform_data(poll_id):
     vpp = votes_per_platform(poll_id);
@@ -36,7 +37,7 @@ def votes_per_platform_data(poll_id):
     res.headers["Content-Type"] = "application/json"
     return res
 
-
+@login_required
 @app.route('/visres/data/votes')
 def votes_data():
 

@@ -4,6 +4,7 @@ from .. import app
 from ..logic.question_service import question_option_result
 
 @app.route('/visres/<poll_id>/anwsers')
+@login_required
 def anwsers(poll_id):
 
     poll = find_poll(poll_id)
