@@ -156,11 +156,59 @@ div {
     box-sizing: inherit;
 }
 
-div {
-    display: block;
+
+h1.teacher{
+    background-color: #a81c41;
+    color: white;
 }
 
+h3.titleandesc{
 
+    background-color: #a81c41;
+    color: white;
+}
+div.pie{
+
+    height: 30%;
+    width: 30%;
+    float:right;
+    margin-bottom: 5%;
+
+}
+
+div.submaster{
+
+    height: 50%;
+    width: 350px;
+    float:left;
+
+}
+
+div.contentdesc {
+
+    height: 25%;
+    width: 350px;
+    float: left;
+}
+
+div.titleandesc {
+
+    border-style: solid;
+    border-radius: 5px;
+    height: 10%;
+    width: 100%;
+
+
+}
+
+div.clean{
+
+    clear: both;
+}
+div.master{
+
+    width: 80%;
+}
 
 #program-glance{
 
