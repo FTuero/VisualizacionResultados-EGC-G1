@@ -1,6 +1,6 @@
 from vr import app
 from vr.model import base
-from vr.controllers import index_controller,db_controller
+from vr.controllers import index_controller,db_controller, login_required
 from flask import request, send_from_directory
 
 @app.route('/visres/static/<path:path>')
