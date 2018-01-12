@@ -20,7 +20,7 @@ before_install:
   - mysql -u root --default-character-set=utf8 votaciones_splc < deploy/database/db_dump/zext_populate.sql
 
 script:
-  - pytest
+  - pytest test.py
   - bash build_and_upload_docker_image.sh
 
 branches:
