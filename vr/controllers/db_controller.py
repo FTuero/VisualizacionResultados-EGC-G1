@@ -4,6 +4,7 @@ from ..logic.poll_service import find_poll,votes_per_day,votes_per_platform
 from ..logic.census_service import census_count
 from flask import render_template,Response
 import json
+from login_required import login_required
 
 @login_required
 @app.route('/visres/data/day/<poll_id>')

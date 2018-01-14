@@ -2,6 +2,7 @@ from ..logic.poll_service import find_poll
 from flask import render_template
 from .. import app
 from ..logic.question_service import question_option_result
+from login_required import login_required
 
 @app.route('/visres/<poll_id>/anwsers')
 @login_required
