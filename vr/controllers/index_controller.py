@@ -3,7 +3,7 @@ from .. import app
 from ..logic.poll_service import find_poll
 from ..logic.question_service import question_option_result
 from flask import render_template
-from login_required import login_required
+from .login_required import login_required
 
 @app.route('/visres/<poll_id>')
 @login_required
