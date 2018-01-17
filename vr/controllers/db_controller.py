@@ -38,10 +38,5 @@ def votes_per_platform_data(poll_id):
     res.headers["Content-Type"] = "application/json"
     return res
 
-@login_required
-@app.route('/visres/data/votes')
-def votes_data():
 
-    res = Response('{"len":1,"labels":["Si","No"], "data":[1,5]}')
-    res.headers["Content-Type"] = "application/json"
-    return res
+
