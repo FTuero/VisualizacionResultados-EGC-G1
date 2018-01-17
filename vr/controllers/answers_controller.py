@@ -2,10 +2,12 @@ from ..logic.poll_service import find_poll
 from flask import render_template, Response,json
 from .. import app
 from ..logic.question_service import question_option_result
+from .login_required import login_required
 import requests
 from ..model import Question, session
 
-@app.route('/visres/<poll_id>/anwsers')
+@app.route('/visres/<poll_id>/answers')
+@login_required
 def anwsers(poll_id):
 
     poll = find_poll(poll_id)
@@ -14,8 +16,7 @@ def anwsers(poll_id):
         votes =  question_option_result(qo_id)
         return votes
 
-
-    return render_template('anwser.html', poll=poll,votes_question=votes_question)
+    return render_template('answer.html', poll=poll,votes_question=votes_question)
 
 
 
@@ -55,8 +56,3 @@ def votes_data(question_id,num):
     res.headers["Content-Type"] = "application/json"
 
     return res
-
-
-
-
-
