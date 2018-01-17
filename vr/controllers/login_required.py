@@ -14,8 +14,8 @@ def login_required(f):
 
         else:
             r = requests.get('https://g1login.egc.duckdns.org/cookies/'+str(session_id))
-            r.json()
-            d = json.loads(r.text.decode('ascii', 'ignore'))
+            
+            d = r.json()
             if d['codigo'] == 0:
                 return redirect("https://g1login.egc.duckdns.org/login")
             else:
