@@ -25,7 +25,7 @@
             {% endfor %}
             </div>
         </ul>
-        <div class="chart pie" data-path="/visres/data/votes" data-type="pie" data-label="Votes"></div>
+        <div class="chart pie" data-path="/visres/votes/{{q.id}}/{{loop.index0}}" data-type="pie" data-label="Votes"></div>
         <div class="clean"></div>
         </div>
     {% endfor %}
