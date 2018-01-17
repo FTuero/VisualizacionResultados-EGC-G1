@@ -1,7 +1,7 @@
 from vr import app
 from vr.model import base
 
-from vr.controllers import index_controller,db_controller, answer_controller
+from vr.controllers import index_controller,db_controller, answers_controller
 
 from flask import request, send_from_directory
 
