@@ -1,23 +1,27 @@
 var ajaxCache = {};
 $(function(){
-    $(".chart").each((i,e) => generateChart($(e)));
+    $(".chart").each((i,e) => generateChart(i, $(e)));
 });
 
-function generateChart(element) {
-    type = element.data("type");
-    path = element.data("path");
-    label = element.data("label");
+function generateChart(i, element) {
+    type = element.attr('data-type');
+    path = element.attr('data-path');
+    label = element.attr('data-label');
 
     element.html("<canvas></canvas>");
     var ctx = element.find("canvas")[0].getContext("2d");
     
     if(ajaxCache[path] == undefined) {
-        $.getJSON(path, function(data) {
-            ajaxCache[path] = data;
-            drawChart(ctx, type, data, label);
-        });
+        $.getJSON(path, onGet(ctx, type, label));
     } else {
         drawChart(ctx, type, ajaxCache[path], label);
+    }
+}
+
+function onGet(ctx, type, label) {
+    return function(data) {
+        ajaxCache[path] = data;
+        drawChart(ctx, type, data, label);
     }
 }
 
